@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - GUVNL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h2>ADMIN SIDE DASHBOARD</h2>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#" class="nav-link">Contact Us</a>
+                <a href="#" class="nav-link">Services</a>
+                <a href="#" class="nav-link">Bill payments</a>
+            </div>
+        </nav>
+
+        <div class="dashboard-content">
+            <div class="complaint-details">
+                <div class="complaint-info">
+                    <div class="info-item">
+                        <span class="label">Complaint id:</span>
+                        <span class="value">CM001234</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Consumer id:</span>
+                        <span class="value">CON567890</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Consumer name:</span>
+                        <span class="value">Rajesh Kumar Patel</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Consumer Address:</span>
+                        <span class="value">123, Satellite Road, Ahmedabad, Gujarat - 380015</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Description:</span>
+                        <span class="value">Power outage in residential area. Multiple households affected. Transformer issue suspected.</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Time and Date of complaint registration:</span>
+                        <span class="value">15th January 2025, 2:30 PM</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Type of complaint:</span>
+                        <span class="value">Power Outage</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="assignment-section">
+                <div class="assignment-form">
+                    <h3>Task Assignment</h3>
+                    
+                    <div class="form-group">
+                        <label>Select type of worker to assign the task to:</label>
+                        <select class="form-select" id="workerType">
+                            <option disabled selected>SELECT</option>
+                            <option value="electrician">Electrician</option>
+                            <option value="lineman">Lineman</option>
+                            <option value="technician">Technical Supervisor</option>
+                            <option value="engineer">Field Engineer</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select the worker to assign the task to:</label>
+                        <select class="form-select" id="workerName">
+                            <option disabled selected>SELECT</option>
+                            <option value="worker1">Amit Sharma (ID: EMP001)</option>
+                            <option value="worker2">Priya Patel (ID: EMP002)</option>
+                            <option value="worker3">Sunil Kumar (ID: EMP003)</option>
+                            <option value="worker4">Ravi Singh (ID: EMP004)</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-assign" onclick="assignTask()">ASSIGN</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
