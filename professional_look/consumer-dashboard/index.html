@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUVNL Consumer Portal - Gujarat Urja Vikas Nigam Limited</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="gov-emblem">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="org-details">
+                        <h1>Gujarat Urja Vikas Nigam Limited</h1>
+                        <p>Government of Gujarat</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <div class="consumer-info">
+                        <span class="consumer-name">Rajesh Kumar Patel</span>
+                        <span class="consumer-id">CON567890</span>
+                    </div>
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="navigation">
+            <div class="nav-container">
+                <div class="nav-title">
+                    <h2>CONSUMER SERVICE PORTAL</h2>
+                    <span class="nav-subtitle">Complaint Registration & Tracking System</span>
+                </div>
+                <div class="nav-menu">
+                    <a href="#" class="nav-item active">
+                        <i class="fas fa-file-alt"></i> New Complaint
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-list"></i> My Complaints
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-receipt"></i> Bill Payment
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-phone"></i> Support
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- Complaint Form Panel -->
+                <section class="panel complaint-form-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-edit"></i> Register New Complaint</h3>
+                        <div class="service-info">
+                            <i class="fas fa-clock"></i>
+                            <span>24/7 Service Available</span>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-intro">
+                            <p>Please provide complete details about your power-related issue. Our technical team will address your complaint promptly.</p>
+                        </div>
+
+                        <form class="complaint-form" onsubmit="submitComplaint(event)">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <i class="fas fa-list-ul"></i>
+                                        Complaint Category
+                                        <span class="required">*</span>
+                                    </label>
+                                    <select class="form-control" id="complaintType" required>
+                                        <option value="" disabled selected>-- Select Issue Type --</option>
+                                        <option value="power-outage">Power Outage</option>
+                                        <option value="voltage-fluctuation">Voltage Fluctuation</option>
+                                        <option value="billing-issue">Billing Related Issue</option>
+                                        <option value="meter-problem">Electric Meter Problem</option>
+                                        <option value="line-damage">Power Line Damage</option>
+                                        <option value="street-light">Street Light Issue</option>
+                                        <option value="new-connection">New Connection Request</option>
+                                        <option value="other">Other Technical Issue</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <i class="fas fa-flag"></i>
+                                        Priority Level
+                                    </label>
+                                    <select class="form-control" id="priority">
+                                        <option value="medium" selected>Normal Priority</option>
+                                        <option value="high">High Priority (Safety Risk)</option>
+                                        <option value="low">Low Priority</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-align-left"></i>
+                                    Detailed Description
+                                    <span class="required">*</span>
+                                </label>
+                                <textarea 
+                                    class="form-control form-textarea" 
+                                    id="description" 
+                                    placeholder="Please describe your issue in detail. Include any relevant information such as affected areas, duration of problem, error messages, etc."
+                                    maxlength="2000"
+                                    required
+                                ></textarea>
+                                <div class="char-counter">
+                                    <span id="charCount">0</span>/2000 characters
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Service Address
+                                    <span class="required">*</span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="address"
+                                    placeholder="Enter complete address where service is required"
+                                    required
+                                    value="123, Satellite Road, Ahmedabad, Gujarat - 380015"
+                                >
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <i class="fas fa-phone"></i>
+                                        Contact Number
+                                    </label>
+                                    <input 
+                                        type="tel" 
+                                        class="form-control" 
+                                        id="contactNumber"
+                                        placeholder="Enter your mobile number"
+                                        value="+91 98765 43210"
+                                    >
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <i class="fas fa-envelope"></i>
+                                        Email Address
+                                    </label>
+                                    <input 
+                                        type="email" 
+                                        class="form-control" 
+                                        id="email"
+                                        placeholder="Enter your email address"
+                                        value="rajesh.patel@email.com"
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i>
+                                    SUBMIT COMPLAINT
+                                </button>
+                                <button type="button" class="btn btn-secondary" onclick="resetForm()">
+                                    <i class="fas fa-undo"></i>
+                                    RESET FORM
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Quick Actions Panel -->
+                <aside class="panel quick-actions-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="quick-action-item">
+                            <div class="action-icon emergency">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="action-content">
+                                <h4>Emergency Helpline</h4>
+                                <p>For urgent power-related emergencies</p>
+                                <strong>1912</strong>
+                            </div>
+                        </div>
+
+                        <div class="quick-action-item">
+                            <div class="action-icon info">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="action-content">
+                                <h4>Track Complaint</h4>
+                                <p>Check status of existing complaints</p>
+                                <a href="#" class="action-link">Track Now</a>
+                            </div>
+                        </div>
+
+                        <div class="quick-action-item">
+                            <div class="action-icon success">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <div class="action-content">
+                                <h4>Pay Bill Online</h4>
+                                <p>Quick and secure bill payment</p>
+                                <a href="#" class="action-link">Pay Now</a>
+                            </div>
+                        </div>
+
+                        <div class="quick-action-item">
+                            <div class="action-icon warning">
+                                <i class="fas fa-download"></i>
+                            </div>
+                            <div class="action-content">
+                                <h4>Download Forms</h4>
+                                <p>Application forms and documents</p>
+                                <a href="#" class="action-link">Download</a>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 Gujarat Urja Vikas Nigam Limited. All rights reserved.</p>
+                <p>Government of Gujarat | Power Distribution Company</p>
+                <p>For technical support: <strong>support@guvnl.gov.in</strong> | Toll Free: <strong>1800-233-3435</strong></p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

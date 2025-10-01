@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUVNL Worker Dashboard - Gujarat Urja Vikas Nigam Limited</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="gov-emblem">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="org-details">
+                        <h1>Gujarat Urja Vikas Nigam Limited</h1>
+                        <p>Government of Gujarat</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <div class="worker-info">
+                        <span class="worker-name">Amit Kumar Sharma</span>
+                        <span class="worker-id">EMP001</span>
+                    </div>
+                    <i class="fas fa-user-hard-hat"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="navigation">
+            <div class="nav-container">
+                <div class="nav-title">
+                    <h2>FIELD WORKER DASHBOARD</h2>
+                    <span class="nav-subtitle">Task Management System</span>
+                </div>
+                <div class="nav-menu">
+                    <a href="#" class="nav-item active">
+                        <i class="fas fa-tasks"></i> Current Task
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-history"></i> History
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-map-marker-alt"></i> Location
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-phone"></i> Support
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-grid">
+                <!-- Task Assignment Panel -->
+                <section class="panel task-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-clipboard-list"></i> Assigned Task Details</h3>
+                        <div class="task-status">
+                            <span class="status-badge assigned">ASSIGNED</span>
+                            <span class="priority-badge high">HIGH PRIORITY</span>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="task-summary">
+                            <div class="summary-row">
+                                <div class="summary-item">
+                                    <label><i class="fas fa-ticket-alt"></i> Complaint ID:</label>
+                                    <span class="complaint-id">CM001234</span>
+                                </div>
+                                <div class="summary-item">
+                                    <label><i class="fas fa-user"></i> Consumer ID:</label>
+                                    <span>CON567890</span>
+                                </div>
+                            </div>
+                            
+                            <div class="summary-row">
+                                <div class="summary-item">
+                                    <label><i class="fas fa-id-card"></i> Consumer Name:</label>
+                                    <span>Rajesh Kumar Patel</span>
+                                </div>
+                                <div class="summary-item">
+                                    <label><i class="fas fa-clock"></i> Assigned Time:</label>
+                                    <span>15th Jan 2025, 3:45 PM</span>
+                                </div>
+                            </div>
+
+                            <div class="summary-item full-width">
+                                <label><i class="fas fa-map-marker-alt"></i> Service Address:</label>
+                                <span class="address">123, Satellite Road, Ahmedabad, Gujarat - 380015</span>
+                            </div>
+
+                            <div class="summary-item full-width">
+                                <label><i class="fas fa-exclamation-triangle"></i> Problem Description:</label>
+                                <span class="description">Power outage in residential area. Multiple households affected. Transformer issue suspected requiring immediate technical intervention and safety assessment.</span>
+                            </div>
+
+                            <div class="summary-row">
+                                <div class="summary-item">
+                                    <label><i class="fas fa-tag"></i> Issue Category:</label>
+                                    <span class="category-tag">Power Outage</span>
+                                </div>
+                                <div class="summary-item">
+                                    <label><i class="fas fa-calendar-alt"></i> Registration:</label>
+                                    <span>15th Jan 2025, 2:30 PM</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="action-section">
+                            <div class="action-buttons">
+                                <button class="btn btn-primary" onclick="startTask()">
+                                    <i class="fas fa-play"></i>
+                                    START TASK
+                                </button>
+                                <button class="btn btn-secondary" onclick="showScheduleModal()">
+                                    <i class="fas fa-calendar-plus"></i>
+                                    SCHEDULE LATER
+                                </button>
+                            </div>
+                            
+                            <div class="additional-actions">
+                                <button class="btn btn-info" onclick="getDirections()">
+                                    <i class="fas fa-route"></i>
+                                    GET DIRECTIONS
+                                </button>
+                                <button class="btn btn-warning" onclick="contactConsumer()">
+                                    <i class="fas fa-phone-alt"></i>
+                                    CONTACT CONSUMER
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Task Progress Panel -->
+                <section class="panel progress-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-chart-line"></i> Task Progress</h3>
+                        <span class="completion-indicator">0% Complete</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="progress-timeline">
+                            <div class="timeline-item completed">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>Task Assigned</h4>
+                                    <p>Task assigned to field worker</p>
+                                    <span class="timeline-time">15th Jan, 3:45 PM</span>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item pending">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>Task Started</h4>
+                                    <p>Worker begins field work</p>
+                                    <span class="timeline-time">Pending</span>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item pending">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>On Location</h4>
+                                    <p>Arrived at service location</p>
+                                    <span class="timeline-time">Pending</span>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item pending">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>Work in Progress</h4>
+                                    <p>Repair/maintenance work</p>
+                                    <span class="timeline-time">Pending</span>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item pending">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-check-double"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>Task Completed</h4>
+                                    <p>Work finished and verified</p>
+                                    <span class="timeline-time">Pending</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="safety-reminder">
+                            <div class="safety-header">
+                                <i class="fas fa-shield-alt"></i>
+                                <h4>Safety Guidelines</h4>
+                            </div>
+                            <ul class="safety-list">
+                                <li>Ensure power isolation before work</li>
+                                <li>Use proper PPE equipment</li>
+                                <li>Follow lockout/tagout procedures</li>
+                                <li>Report any hazardous conditions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 Gujarat Urja Vikas Nigam Limited. All rights reserved.</p>
+                <p>Government of Gujarat | Power Distribution Company</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

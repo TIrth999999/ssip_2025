@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUVNL Admin Dashboard - Gujarat Urja Vikas Nigam Limited</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="gov-emblem">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="org-details">
+                        <h1>Gujarat Urja Vikas Nigam Limited</h1>
+                        <p>Government of Gujarat</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <span class="admin-info">Admin Portal</span>
+                    <i class="fas fa-user-shield"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="navigation">
+            <div class="nav-container">
+                <div class="nav-title">
+                    <h2>ADMINISTRATIVE DASHBOARD</h2>
+                    <span class="nav-subtitle">Complaint Management System</span>
+                </div>
+                <div class="nav-menu">
+                    <a href="#" class="nav-item active">
+                        <i class="fas fa-home"></i> Dashboard
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-file-alt"></i> Reports
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-users"></i> Workforce
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-cog"></i> Settings
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-grid">
+                <!-- Complaint Details Panel -->
+                <section class="panel complaint-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Complaint Details</h3>
+                        <span class="priority-badge high">High Priority</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="complaint-summary">
+                            <div class="summary-item">
+                                <label>Complaint ID:</label>
+                                <span class="complaint-id">CM001234</span>
+                            </div>
+                            <div class="summary-item">
+                                <label>Consumer ID:</label>
+                                <span>CON567890</span>
+                            </div>
+                            <div class="summary-item">
+                                <label>Consumer Name:</label>
+                                <span>Rajesh Kumar Patel</span>
+                            </div>
+                            <div class="summary-item">
+                                <label>Address:</label>
+                                <span>123, Satellite Road, Ahmedabad, Gujarat - 380015</span>
+                            </div>
+                            <div class="summary-item full-width">
+                                <label>Problem Description:</label>
+                                <span>Power outage in residential area. Multiple households affected. Transformer issue suspected requiring immediate technical intervention.</span>
+                            </div>
+                            <div class="summary-item">
+                                <label>Registration Time:</label>
+                                <span>15th January 2025, 2:30 PM</span>
+                            </div>
+                            <div class="summary-item">
+                                <label>Complaint Category:</label>
+                                <span class="category-tag">Power Outage</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Task Assignment Panel -->
+                <section class="panel assignment-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-tasks"></i> Task Assignment</h3>
+                        <span class="status-indicator pending">Awaiting Assignment</span>
+                    </div>
+                    <div class="panel-body">
+                        <form class="assignment-form" onsubmit="assignTask(event)">
+                            <div class="form-section">
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <i class="fas fa-user-tag"></i>
+                                        Worker Category
+                                    </label>
+                                    <select class="form-control" id="workerType" required>
+                                        <option value="" disabled selected>-- Select Worker Type --</option>
+                                        <option value="electrician">Licensed Electrician</option>
+                                        <option value="lineman">Power Line Technician</option>
+                                        <option value="supervisor">Technical Supervisor</option>
+                                        <option value="engineer">Field Engineer</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <i class="fas fa-user"></i>
+                                        Assign to Worker
+                                    </label>
+                                    <select class="form-control" id="workerName" required>
+                                        <option value="" disabled selected>-- Select Worker --</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <i class="fas fa-flag"></i>
+                                        Priority Level
+                                    </label>
+                                    <select class="form-control" id="priority">
+                                        <option value="high" selected>High Priority</option>
+                                        <option value="medium">Medium Priority</option>
+                                        <option value="low">Low Priority</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-paper-plane"></i>
+                                        ASSIGN TASK
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" onclick="scheduleTask()">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        SCHEDULE
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 Gujarat Urja Vikas Nigam Limited. All rights reserved.</p>
+                <p>Government of Gujarat | Power Distribution Company</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
