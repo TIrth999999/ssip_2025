@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUVNL Registration - Gujarat Urja Vikas Nigam Limited</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+    <!-- Updated Font Awesome CDN with multiple fallbacks -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Fallback Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- Additional fallback script -->
+    <script>
+        window.addEventListener('load', function() {
+            if (!window.FontAwesome && !document.querySelector('.fas')) {
+                console.log('Loading Font Awesome fallback...');
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = 'https://use.fontawesome.com/releases/v5.15.4/css/all.css';
+                document.head.appendChild(link);
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="gov-emblem">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="org-details">
+                        <h1>Gujarat Urja Vikas Nigam Limited</h1>
+                        <p>Government of Gujarat - Power Distribution Company</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="signup-container">
+                <div class="signup-header">
+                    <h2><i class="fas fa-user-plus"></i> Create New Account</h2>
+                    <p>Register to access GUVNL services and complaint management system</p>
+                </div>
+
+                <form class="signup-form" onsubmit="handleSignup(event)">
+                    <!-- User Type Selection -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-user-tag"></i> Account Type</h3>
+                        <div class="user-type-grid">
+                            <label class="user-type-card">
+                                <input type="radio" name="userType" value="consumer" required>
+                                <div class="card-content">
+                                    <i class="fas fa-home"></i>
+                                    <h4>Consumer</h4>
+                                    <p>Electricity consumer/customer</p>
+                                </div>
+                            </label>
+                            <label class="user-type-card">
+                                <input type="radio" name="userType" value="admin" required>
+                                <div class="card-content">
+                                    <i class="fas fa-user-shield"></i>
+                                    <h4>Admin</h4>
+                                    <p>System administrator</p>
+                                </div>
+                            </label>
+                            <label class="user-type-card">
+                                <input type="radio" name="userType" value="worker" required>
+                                <div class="card-content">
+                                    <i class="fas fa-hard-hat"></i>
+                                    <h4>Worker</h4>
+                                    <p>Field technician/engineer</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Personal Information -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-user"></i> Personal Information</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    First Name <span class="required">*</span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="firstName"
+                                    placeholder="Enter first name"
+                                    required
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Middle Name
+                                </label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="middleName"
+                                    placeholder="Enter middle name"
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Last Name <span class="required">*</span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="lastName"
+                                    placeholder="Enter last name"
+                                    required
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-envelope"></i> Contact Information</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Email Address <span class="required">*</span>
+                                </label>
+                                <input 
+                                    type="email" 
+                                    class="form-control" 
+                                    id="email"
+                                    placeholder="Enter email address"
+                                    required
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Contact Number <span class="required">*</span>
+                                </label>
+                                <input 
+                                    type="tel" 
+                                    class="form-control" 
+                                    id="contactNumber"
+                                    placeholder="+91 XXXXX XXXXX"
+                                    required
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Address Information -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-map-marker-alt"></i> Address Information</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Home Number <span class="required">*</span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="homeNumber"
+                                    placeholder="House/Flat number"
+                                    required
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Address Line 1 <span class="required">*</span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="addressLine1"
+                                    placeholder="Street, Area, Locality"
+                                    required
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Address Line 2
+                                </label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="addressLine2"
+                                    placeholder="Landmark, Near by"
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">
+                                    PIN Code <span class="required">*</span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="pinCode"
+                                    placeholder="6-digit PIN code"
+                                    pattern="[0-9]{6}"
+                                    required
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">
+                                    City <span class="required">*</span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="city"
+                                    placeholder="City name"
+                                    required
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">
+                                    State <span class="required">*</span>
+                                </label>
+                                <select class="form-control" id="state" required>
+                                    <option value="" disabled selected>Select State</option>
+                                    <option value="Gujarat" selected>Gujarat</option>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                    <option value="Rajasthan">Rajasthan</option>
+                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                    <!-- Add more states as needed -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Worker Specific Fields -->
+                    <div class="form-section worker-fields" id="workerFields" style="display: none;">
+                        <h3><i class="fas fa-tools"></i> Professional Information</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Expertise <span class="required">*</span>
+                                </label>
+                                <select class="form-control" id="expertise">
+                                    <option value="" disabled selected>Select Expertise</option>
+                                    <option value="lineman">Lineman</option>
+                                    <option value="electrician">Licensed Electrician</option>
+                                    <option value="supervisor">Technical Supervisor</option>
+                                    <option value="field-engineer">Field Engineer</option>
+                                    <option value="maintenance">Maintenance Technician</option>
+                                    <option value="transformer-specialist">Transformer Specialist</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Years of Experience <span class="required">*</span>
+                                </label>
+                                <select class="form-control" id="experience">
+                                    <option value="" disabled selected>Select Experience</option>
+                                    <option value="0-1">0-1 years</option>
+                                    <option value="1-3">1-3 years</option>
+                                    <option value="3-5">3-5 years</option>
+                                    <option value="5-10">5-10 years</option>
+                                    <option value="10+">10+ years</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Password Section -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-lock"></i> Security Information</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Set Password <span class="required">*</span>
+                                </label>
+                                <div class="password-input">
+                                    <input 
+                                        type="password" 
+                                        class="form-control" 
+                                        id="password"
+                                        placeholder="Enter password"
+                                        required
+                                        minlength="8"
+                                    >
+                                    <button type="button" class="password-toggle" onclick="togglePassword('password')">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="password-requirements">
+                                    <small>Password must be at least 8 characters long</small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">
+                                    Confirm Password <span class="required">*</span>
+                                </label>
+                                <div class="password-input">
+                                    <input 
+                                        type="password" 
+                                        class="form-control" 
+                                        id="confirmPassword"
+                                        placeholder="Confirm password"
+                                        required
+                                    >
+                                    <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Terms and Conditions -->
+                    <div class="form-section">
+                        <div class="terms-checkbox">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="agreeTerms" required>
+                                <span class="checkmark"></span>
+                                I agree to the <a href="#" class="terms-link">Terms and Conditions</a> and <a href="#" class="terms-link">Privacy Policy</a>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-user-plus"></i>
+                            CREATE ACCOUNT
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Login Link -->
+                <div class="login-link">
+                    <p>Already have an account? <a href="/login" class="login-btn">Login Here</a></p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 Gujarat Urja Vikas Nigam Limited. All rights reserved.</p>
+                <p>Government of Gujarat | Power Distribution Company</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- <script src="script.js"></script> -->
+     <script src="{{ url_for('static', path='js/script.js') }}" ></script>
+</body>
+</html>
