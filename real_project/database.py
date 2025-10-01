@@ -14,7 +14,7 @@ class Settings(BaseSettings):
 
     @property
     def MONGODB_URL(self):
-        return f"mongodb://127.0.0.1:27017/"
+        return f"mongodb+srv://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_CLUSTER}.mongodb.net/?retryWrites=true&w=majority&appName=cul-cluster"
 
 settings = Settings()
 
