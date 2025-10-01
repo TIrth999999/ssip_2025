@@ -8,7 +8,7 @@ class Address(BaseModel):
     address_line_2: Optional[str]
     city: str
     state: str
-    pin_code: Annotated[str, Field(regex=r'^\d{6}$')]
+    pin_code: Annotated[str, Field(pattern=r'^\d{6}$')]
 
 
 class BasicDetails(BaseModel):
@@ -17,7 +17,7 @@ class BasicDetails(BaseModel):
     middle_name: Optional[str]
     last_name: str
     email: EmailStr = Field(..., alias="_id")
-    contact_number: Annotated[str, Field(regex=r'^\d{10}$')]
+    contact_number: Annotated[str, Field(pattern=r'^\d{10}$')]
     password: SecretStr
 
 
