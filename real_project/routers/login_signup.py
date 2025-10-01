@@ -10,9 +10,9 @@ router = APIRouter()
 templates = Jinja2Templates(directory="templates")
 
 @router.get("/", response_class=HTMLResponse)
-def signup(request: Request):
+async def signup(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 @router.get("/login", response_class=HTMLResponse)
-def login(request: Request):
+async def login(request: Request):
     return templates.TemplateResponse("login.html", {"request": request})
